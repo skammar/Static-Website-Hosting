@@ -1,0 +1,484 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Hide the browser scrollbar on the left */
+  body {
+    direction: ltr;
+    overflow-y: scroll;
+    scrollbar-width: none; /* For Firefox */
+  }
+  
+  /* For Webkit (Chrome, Safari, etc.) */
+  body::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+  
+  .NavList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .NavListItem {
+    list-style: none;
+    margin: 0.625rem;
+    padding: 0.625rem;
+  }
+  
+  .NavLink {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 1.125em;
+  }
+  .NavLink:hover {
+    color: orangered;
+    font-size: 1.188em;
+  }
+  
+  .NavParentDiv {
+    width: 100vw;
+    height: 3.75rem;
+    display: flex;
+    justify-content: right;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+    background: rgba(225, 225, 225, 0.1);
+    backdrop-filter: blur(5px);
+  }
+  
+  .AboutUsSection {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),
+      url("../public/media/SaifeeStoreBackDrop.jpg") center center;
+    background-size: cover;
+  }
+  
+  .AboutUsParentDiv {
+    display: grid;
+    /* Two columns for first row */
+    grid-template-columns: 0.1fr 1fr;
+    /* Two rows with automatic Height */
+    grid-template-rows: auto auto;
+    gap: 0.625rem; /* Gap between grid items */
+    width: 40.625rem; /* Set a width for the container */
+    margin: 8.75rem auto; /* Center the container horizontally */
+    padding: 1.125rem;
+  }
+  
+  .LogoDiv {
+    background: url("../public/media/SAIFEE\ STORES.png");
+    background-size: cover;
+    height: 8.75rem;
+    width: 8.438rem;
+  }
+  
+  .HeadingParentDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Two row stacks with center alignment */
+  }
+  
+  .NameHeadingDiv {
+    color: #ffffff;
+    font-family: serif;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 3.75em;
+    /* text-decoration: underline;
+    text-decoration-thickness: 2px; */
+    border-bottom: 2px solid #ffffff;
+  }
+  
+  .SubHeadingNameDiv {
+    margin-top: 0.625rem;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-weight: 200;
+    font-size: 1.25em;
+    letter-spacing: 0.875rem;
+  }
+  
+  .InfoDiv {
+    margin-top: 2.5rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color: #ffffff;
+    grid-column: span 2; /* Span two columns */
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 1.313em;
+  }
+  
+  .QuoteDiv {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .Quote {
+    margin-top: -20px;
+    font-family: serif;
+    font-variant: small-caps;
+    font-size: 1.875em;
+    color: #ff6600;
+  }
+  
+  .ProductSection {
+    background-color: #f7f7f7;
+    width: 100vw;
+    height: 70vh;
+    gap: 1.25rem;
+  }
+  
+  .ProductHeadingDiv {
+    padding-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  .ProductHeading {
+    color: #07407b;
+    font-family: serif;
+    font-weight: 150;
+    font-size: 3.125em;
+  }
+  
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .InfiniteProductCarousel {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3.75rem;
+    animation: 35s slide infinite linear;
+  }
+  .InfiniteProductCarousel:hover {
+    animation-play-state: paused;
+  }
+  
+  .Container {
+    height: 21.875rem;
+    width: 15.625rem;
+    perspective: 50rem;
+  }
+  
+  .Container:hover > .ProductCard {
+    cursor: pointer;
+    transform: rotateY(180deg);
+  }
+  
+  .ProductCard {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+  }
+  
+  .CardFront,
+  .CardBack {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.625rem;
+    position: absolute;
+    backface-visibility: hidden;
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .CardFront {
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.938rem;
+  }
+  
+  .CardBack {
+    background-color: #0e0f3b;
+    transform: rotateY(180deg);
+  }
+  
+  .ProductImage1,
+  .ProductImage2,
+  .ProductImage3,
+  .ProductImage4,
+  .ProductImage5 {
+    margin: 0.188rem;
+    padding: 0.188rem;
+    width: 94%;
+    height: 60%;
+    background-size: cover;
+    border-radius: 0.625rem;
+  }
+  
+  .ProductImage1 {
+    background-image: url("../public/media/ACRYLIC.jpg");
+  }
+  
+  .ProductImage2 {
+    background-image: url("../public/media/PolycarbonateProducts.jpg");
+  }
+  .ProductImage3 {
+    background-image: url("../public/media/RubberProducts.jpg");
+  }
+  .ProductImage4 {
+    background-image: url("../public/media/PTFEproducts.jpg");
+  }
+  .ProductImage5 {
+    background-image: url("../public/media/EXTRUDED.jpg");
+  }
+  
+  .ProductName {
+    color: #ffffff;
+    font-family: sans-serif;
+    font-weight: 200;
+    text-align: center;
+    font-size: 1.375em;
+  }
+  
+  .EnquireButton {
+    background-color: #ff6600; /* Background color */
+    border: none;
+    color: white; /* Text color */
+    padding: 0.625rem 1.25rem; /* Padding around the text */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s, border-color 0.3s; /* Transition effect */
+    border-radius: 0.938rem;
+  }
+  
+  .EnquireButton:hover {
+    background-color: orangered; /* Background color on hover */
+  }
+  .ProductList {
+    margin-top: 1.25rem;
+    margin-left: 1.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .ProductListItems {
+    color: #ffffff;
+  }
+  
+  .ContactSection {
+    background-color: #f7f7f7;
+    height: 80vh;
+    width: 100vw;
+  }
+  .ParentContactComponent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ContactComponent {
+    margin-top: 3.75rem;
+    height: 31.25rem;
+    width: 62.5rem;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 1.25rem;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .ContactDetail {
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)),
+      url("../public/media/contactImage.jpg") center center;
+    background-size: cover;
+    border-radius: 20px 0px 0px 20px;
+    height: 100%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3.125rem;
+  }
+  
+  .ContentDiv {
+    padding-left: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.875rem;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  .ContentIcon {
+    height: 3.75rem;
+    width: 3.75rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.875em;
+  }
+  
+  .Content {
+    color: #ffffff;
+    font-family: sans-serif;
+  }
+  
+  .ContactLinks {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.125em;
+  }
+  
+  .FormComponent {
+    padding: 1.25rem;
+    width: 55%;
+  }
+  
+  .FormHeading {
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem;
+    font-family: serif;
+    font-weight: 300;
+    color: #07407b;
+    font-size: 1.875em;
+    text-align: center;
+  }
+  
+  .Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  
+  .InputBox {
+    width: 300px;
+  }
+  
+  .InputBox input {
+    width: 100%;
+    padding: 0.625rem;
+    border: 2px solid grey;
+    border-radius: 0.313rem;
+    outline: none;
+    color: black;
+    font-size: 1em;
+  }
+  
+  .InputBoxMessage {
+    width: 18.75rem;
+  }
+  
+  .InputBoxMessage input {
+    width: 100%;
+    height: 3.75rem;
+    padding: 0.625rem;
+    border: 2px solid grey;
+    border-radius: 0.313rem;
+    outline: none;
+    color: black;
+    font-size: 1em;
+  }
+  
+  .FormButton {
+    height: 3.125rem;
+    width: 6.25rem;
+    background-color: #07407b; /* Background color */
+    border: none;
+    color: white; /* Text color */
+    padding: 0.625rem 1.25rem; /* Padding around the text */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s, border-color 0.3s; /* Transition effect */
+    border-radius: 0.938rem;
+  }
+  
+  .FormButton:hover {
+    background-color: #ff6600;
+  }
+  
+  footer {
+    height: 25vh;
+    width: 100vw;
+    background: #111;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 100;
+    color: #ffffff;
+    padding-top: 2.5rem;
+  }
+  
+  .FooterContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .FooterContent h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: capitalize;
+    line-height: 3rem;
+  }
+  
+  .FooterContent p {
+    max-width: 31.25rem;
+    margin: 0.625rem auto;
+    line-height: 1.75rem;
+    font-size: 0.875em;
+  }
+  
+  .FooterSocialList {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+  }
+  
+  .FooterSocialList li {
+    margin: 0 0.625rem;
+  }
+  
+  .FooterSocialList a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .FooterSocialList a i {
+    font-size: 1.1rem;
+    transition: color 0.4s ease;
+  }
+  
+  .FooterSocialList a:hover i {
+    color: orangered;
+  }
+  
+  .FooterBottomContent {
+    background: #000;
+    width: 100vw;
+    padding: 1.25rem 0;
+    text-align: center;
+  }
+  
+  .FooterBottomContent p {
+    font-size: 0.875em;
+    word-spacing: 0.125rem;
+    text-transform: capitalize;
+  }
+  
